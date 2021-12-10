@@ -2,13 +2,13 @@
   
   <div class = "col">
    
-    <p>Agrega una cancion de ghost</p>
+    <p>Agrega un videojuego que te guste!</p>
   
   </div>
  
   <div class = "col">
   
-    <p>Lista de canciones ({{  itemCount }})</p>
+    <p>Lista de VideoJuegos ({{  itemCount }})</p>
   
   </div>
 
@@ -17,7 +17,7 @@
   
     <div class = "col">
      
-      <p class="sm">Agrega el nombre de una cancion .</p>
+      <p class="sm">Agrega un VideoJuego .</p>
       <form>
         <input type="text" class="txt" name="item" placeholder="Life goal..." [(ngModel)]= "goalText">
         
@@ -29,7 +29,7 @@
     <div class = "col">
      <p class="life-container" *ngFor="let goal of goals; let i = index" (click)="removeItem(i)">
 
-        {{goal.nombre}} - {{goal.album}}
+        {{goal.nombre}}
       </p>
     
     </div>

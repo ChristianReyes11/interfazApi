@@ -23,7 +23,7 @@ describe('AppComponent', () => {
   it(`should have as title 'ng5met'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Ghost');
+    expect(app.title).toEqual('juegos');
   });
 
   xit('should render title', () => {
