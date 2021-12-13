@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs/';
 })
 export class DataService {
 
-  private goals = new BehaviorSubject<any>(['Juegos']);
+  private goals = new BehaviorSubject<any>(['Jugadores']);
   goal=  this.goals.asObservable();
 
   constructor(private http: HttpClient) { }
@@ -18,10 +18,8 @@ export class DataService {
     this.goals.next(goal)
   }
 
-  //apiURL = 'http://localhost:8117;
-  apiURL = 'http://34.125.7.41:8127/ignaciovl-api';
+  apiURL = 'http://34.125.7.41:8102/eduardo-api';
 
-  // Http Options
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -35,7 +33,7 @@ export class DataService {
 
 
   getGoals(): Observable<GoalsApi> {
-    return this.http.get<GoalsApi>(this.apiURL + '/juegos', this.httpOptions)
+    return this.http.get<GoalsApi>(this.apiURL + '/jugadores', this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -43,24 +41,14 @@ export class DataService {
   }   
 
   newGoal(payload): Observable<GoalsApi> {
-    return this.http.post<GoalsApi>(this.apiURL + '/juegos', JSON.stringify(payload), this.httpOptions)
+    return this.http.post<GoalsApi>(this.apiURL + '/jugadores', JSON.stringify(payload), this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
     )
   }
 
-/*
-  postParks(parksApi): Observable<ParksApi> {
-    //console.log("print post: " + this.apiURL + '/parques', JSON.stringify(parksApi), this.httpOptions)
-    return this.http.post<ParksApi>(this.apiURL + '/parques', JSON.stringify(parksApi), this.httpOptions)
-    .pipe(
-      retry(1),
-      catchError(this.handleError)
-    )
-  }*/
-  
-  // Error handling 
+
   handleError(error) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {

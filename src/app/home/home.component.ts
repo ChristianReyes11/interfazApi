@@ -34,8 +34,8 @@ import { DataService } from '../data.service';
 export class HomeComponent implements OnInit {
   
   itemCount: number;
-  btntxt: string ="Agregar Cancion";
-  goalText: string ="nombre cancion"; 
+  btntxt: string ="Agregar Jugador";
+  goalText: string ="nombre jugador"; 
   goals=[];
   constructor(private _data: DataService) { }
 
@@ -46,20 +46,18 @@ export class HomeComponent implements OnInit {
 
     this._data.getGoals()
      .subscribe((data: any) => {
-      alert(JSON.stringify(data.canciones)); //cambiado 49-51
+      alert(JSON.stringify(data.jugadores)); //cambiado 49-51
 
-      this.goals = data.canciones;
+      this.goals = data.jugadores;
       this._data.changeGoal(this.goals);
 
     });
   } 
 
-//cambiado 58-62
   AgregarMeta(){
 
     var payload = {
-      nombre: "Cirice",
-      album: "Infesstissumam"
+      nombre: this.goalText
     }
 
     this._data.newGoal(payload)

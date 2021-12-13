@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/ng5met",
+    "public": "dist/barca",
     "ignore": [
       "firebase.json",
       "**/.*",
